@@ -4,11 +4,12 @@
     "module": "commonjs",
     "outDir": "./",
     "sourceMap": false,
-    "strict": true
+    "strict": true,
+    "noImplicitAny": false
   },
   "include": [
-    "**.ts"
-    ],
+    "**.ts",
+  ],
   "exclude": [
     "node_modules",
   ]

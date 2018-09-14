@@ -1,9 +1,6 @@
 #!/usr/bin/env node
+import program from 'commander';
 
-export class Main {
-  public static log(val: string) {
-      console.log(val);
-  }
-}
+import * as PKG from 'package.json';
 
-Main.log('Hello World');
+console.log(PKG.version);

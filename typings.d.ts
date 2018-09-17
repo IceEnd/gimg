@@ -1,4 +1,10 @@
+interface Pkg {
+  version: string;
+}
+
 declare module '*.json' {
-  const value: any;
+  const value: Pkg;
   export default value;
 }
+
+declare module 'commander';

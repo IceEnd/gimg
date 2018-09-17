@@ -5,10 +5,13 @@
     "outDir": "./",
     "sourceMap": false,
     "strict": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": [
     "**.ts",
+    "**.json"
   ],
   "exclude": [
     "node_modules",

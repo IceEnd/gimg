@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import program from 'commander';
 
-import * as PKG from 'package.json';
+import PKG from './package.json';
 
-console.log(PKG.version);
+program
+  .version(PKG.version)
+  .parse(process.argv);

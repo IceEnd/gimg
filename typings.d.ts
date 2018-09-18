@@ -7,4 +7,4 @@ declare module '*.json' {
   export default value;
 }
 
-declare module 'commander';
+declare module 'canvas';

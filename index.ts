@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import program from 'commander';
 
+import canvas from './lib/Canvas';
 import PKG from './package.json';
 
 program
@@ -13,8 +14,11 @@ program
   .option('-s, --size <size>', 'Image size', /^d+xd+$/i, '500x500')
   .option('-t, --text <text>', 'Text')
   .option('-o, --out <path>', 'Out file path')
+  .option('-t, --type <png|jpe?g|svg.gif>', 'File type', /^(png|jpe?g|svg|gif)/i, 'png')
   .action((...args) => {
-    console.log(args);
+    const name = args[0];
+    const options = args[1];
+    canvas(name, options);
   });
 
 program

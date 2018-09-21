@@ -16,7 +16,8 @@
                 "timeEnd",
                 "trace"
             ]
-        }
+        },
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }

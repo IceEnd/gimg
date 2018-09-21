@@ -1,25 +1,36 @@
 #!/usr/bin/env node
 import program from 'commander';
 
-import canvas from './lib/Canvas';
+import Canvas from './lib/Canvas';
 import PKG from './package.json';
 
 program
-  .version(PKG.version);
+  .version(PKG.version)
+  .parse(process.argv);
 
 program
   .command('create <name>')
   .description('Generate image')
   .usage('[options] <file ...>')
-  .option('-s, --size <size>', 'Image size', /^d+xd+$/i, '500x500')
+  .option('-s, --size <size>', 'Image size', /^\d+x\d+$/i, '200x200')
   .option('-t, --text <text>', 'Text')
-  .option('-o, --out <path>', 'Out file path')
-  .option('-t, --type <png|jpe?g|svg.gif>', 'File type', /^(png|jpe?g|svg|gif)/i, 'png')
-  .action((...args) => {
-    const name = args[0];
-    const options = args[1];
-    canvas(name, options);
-  });
+  .option('-o, --out <path>', 'Out path')
+  .option('-t, --type <png|jpe?g|svg|gif>', 'File type', /^(png|jpe?g|svg|gif)/i, 'png')
+  .option('-bg, --background <color>', 'Background color', '#000000')
+  .option('-c, --color <color>', 'Font color', '#FFFFFF')
+  .action((name, cmd) => {
+    const { size, text, out, type, background, color } = cmd;
+    const canvas = new Canvas(name, {
+      size,
+      text,
+      out,
+      type,
+      background,
+      color,
+    });
+    canvas.drawImage();
+  })
+  .parse(process.argv);
 
 program
   .command('help')

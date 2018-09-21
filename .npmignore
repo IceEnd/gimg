@@ -60,5 +60,16 @@ typings/
 # next.js build output
 .next
 
-lib
 yarn.lock
+
+.vscode
+.editorconfig
+.gitignore
+
+lib
+test
+
+index.ts
+tslint.json
+typings.d.ts
+tsconfig.json

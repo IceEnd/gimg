@@ -21,3 +21,31 @@ OpenBSD | `doas pkg_add cairo pango png jpeg giflib`
 Windows | [Instructions on our wiki](https://github.com/Automattic/node-canvas/wiki/Installation:-Windows)
 
 **Mac OS X v10.11+:** If you have recently updated to Mac OS X v10.11+ and are experiencing trouble when compiling, run the following command: `xcode-select --install`. Read more about the problem [on Stack Overflow](http://stackoverflow.com/a/32929012/148072).
+
+### Install
+
+```shell
+npm install gimg -g
+```
+
+## Usage
+
+```shell
+Usage: gimg [options] [command]
+
+Options:
+
+  -V, --version            output the version number
+  -h, --help               output usage information
+
+Commands:
+
+  create [options] <name>  Generate image
+  help                     Print this help
+```
+
+## Example
+
+```shell
+gimg create name -s 500x500 -t image -ft jpg
+```

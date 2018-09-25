@@ -66,8 +66,8 @@ yarn.lock
 .editorconfig
 .gitignore
 
-lib
-test
+./lib
+./test
 
 index.ts
 tslint.json

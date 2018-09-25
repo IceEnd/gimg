@@ -2,6 +2,8 @@
 
 Generate images of a specific size.
 
+[![npm](https://img.shields.io/npm/v/gimg.svg?style=for-the-badge)](https://www.npmjs.com/package/gimg)
+
 
 ## Installation
 
@@ -49,3 +51,11 @@ Commands:
 ```shell
 gimg create name -s 500x500 -t image -ft jpg
 ```
+
+## Thanks
+
+[node-canvas](https://github.com/Automattic/node-canvas)
+
+## License
+
+[MIT](./LICENSE)

@@ -49,7 +49,7 @@ Commands:
 ## Example
 
 ```shell
-gimg create name -s 500x500 -t image -ft jpg
+gimg create name -s 500x500 -t image -f jpg
 ```
 
 ## Thanks

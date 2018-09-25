@@ -15,8 +15,8 @@ program
   .option('-s, --size <size>', 'Image size', /^\d+x\d+$/i, '200x200')
   .option('-t, --text <text>', 'Text')
   .option('-o, --out <path>', 'Out path')
-  .option('-ft, --filetype <png|jpe?g|svg|gif>', 'File type', /^(png|jpe?g|svg|gif)/i, 'png')
-  .option('-bg, --background <color>', 'Background color', '#000000')
+  .option('-f, --filetype <png|jpe?g|svg|gif>', 'File type', /^(png|jpe?g|svg|gif)/i, 'png')
+  .option('-b, --background <color>', 'Background color', '#000000')
   .option('-c, --color <color>', 'Font color', '#FFFFFF')
   .action((name, cmd) => {
     const { size, text, out, filetype, background, color } = cmd;

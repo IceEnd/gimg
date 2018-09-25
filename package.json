@@ -1,6 +1,6 @@
 {
   "name": "gimg",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Generate images of a specific size.",
   "main": "index.ts",
   "bin": {

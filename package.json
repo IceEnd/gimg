@@ -1,6 +1,6 @@
 {
   "name": "gimg",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Generate images of a specific size.",
   "main": "index.ts",
   "bin": {
@@ -25,9 +25,11 @@
   },
   "homepage": "https://github.com/IceEnd/gimg#readme",
   "dependencies": {
+    "@types/inquirer": "^0.0.43",
     "canvas": "^2.0.0-alpha.14",
     "colors": "^1.3.2",
-    "commander": "^2.18.0"
+    "commander": "^2.18.0",
+    "inquirer": "^6.2.0"
   },
   "devDependencies": {
     "@types/colors": "^1.2.1",

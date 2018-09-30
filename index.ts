@@ -28,7 +28,7 @@ program
       background,
       color,
     });
-    canvas.drawImage();
+    canvas.genarator();
   })
   .parse(process.argv);
 

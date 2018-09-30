@@ -1,8 +1,7 @@
 import { createCanvas } from 'canvas';
 import fs from 'fs';
 import path from 'path';
-
-const FONT_SIZE = 50;
+import inquirer from 'inquirer';
 
 interface IOptions {
   size: string;
@@ -56,6 +55,26 @@ export default class Canvas implements InterfaceCanvas {
     this.fromatOptions(name, options);
   }
 
+  public genarator() {
+    const checked = this.preCheck();
+    const { name, filetype } = this;
+    if (checked) {
+      this.drawImage();
+    } else {
+      inquirer
+        .prompt([{
+          name: 'overwrite',
+          message: `Overwrite ${name}.${filetype}?`,
+          type: 'confirm',
+        }])
+        .then((answers: any) => {
+          if (answers.overwrite) {
+            this.drawImage();
+          }
+        });
+    }
+  }
+
   /**
    * draw image
    */
@@ -71,11 +90,18 @@ export default class Canvas implements InterfaceCanvas {
     ctx.fillRect(0, 0, width, height);
 
     // draw text
-    ctx.font = `${FONT_SIZE}px Arial`;
+    const textLength = text.length;
+    const maxWidth = width * 0.8;
+    const maxHeight = height * 0.8;
+    let fontSize = Math.floor(maxWidth / textLength);
+    if (fontSize > maxHeight) {
+      fontSize = maxHeight;
+    }
+    ctx.font = `${fontSize}px Arial`;
     ctx.fillStyle = color;
     const textWidth = ctx.measureText(text).width;
     const textX = (width - textWidth) / 2;
-    const textY = (height + FONT_SIZE) / 2;
+    const textY = (height + fontSize) / 2;
     ctx.fillText(text, textX, textY);
 
     const base64 = canvas.toDataURL();
@@ -87,6 +113,18 @@ export default class Canvas implements InterfaceCanvas {
     const file = `${outpath}/${name}.${filetype}`;
     const data = base64.replace(/^data:image\/\w+;base64,/, '');
     fs.writeFileSync(file, data, { encoding: 'base64' });
+  }
+
+  /**
+   * check has file
+   */
+  public preCheck() {
+    const { outpath, name, filetype } = this;
+    const file = `${outpath}/${name}.${filetype}`;
+    if (fs.existsSync(file)) {
+      return false;
+    }
+    return true;
   }
 
   /**
